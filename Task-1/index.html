@@ -1,237 +1,1015 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travelbook</title>
-<style>
-    body{
-        background-color: rgb(236, 243, 243);
-        margin: 20px 70px;
-    }
-    .logo{
-        color: rgb(30, 28, 25);
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: large;
-        font-weight: bold;
-        margin: 20px 20px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+  <title>Trabook</title>
+  <style>
+    body {
+      background-color: rgb(236, 243, 243);
+      margin: 20px 70px;
     }
 
-    header{
-        display: flex;
-        background: aliceblue;
-        justify-content: space-between; 
-        align-items: center;
-        margin: 10px;
+    .logo {
+      color: rgb(30, 28, 25);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      font-weight: bold;
+      margin: 20px 20px;
     }
+
+    header {
+      display: flex;
+      background: aliceblue;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+    }
+
     nav ul {
-       list-style: none;
-       display: flex;
-       gap: 20px;
-    } 
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
     nav li {
-        cursor: pointer;
-        font-weight: 400;
+      cursor: pointer;
+      font-weight: 400;
     }
 
-    .auth-buttons button{
-       
-        gap: 10px;
-        font-weight:bold;
-        font-size: medium;
-        border: none;
-        cursor: pointer;
-        margin-right: 30px;
-        margin-left: 30px;
-        padding: 8px 16px;
+    .auth-buttons button {
+
+      gap: 10px;
+      font-weight: bold;
+      font-size: medium;
+      border: none;
+      cursor: pointer;
+      margin-right: 30px;
+      margin-left: 30px;
+      padding: 8px 16px;
     }
 
-     .auth-buttons button:hover{
-        background-color: rgb(247, 161, 14);
-        color: white;
-        font-weight:bold;
-        border-radius: 5px;
-     }
-     .travel{
-        display: flex;
-     }
-     .travel img{
-        float: left;
-        border-radius: 50%; /* makes the image circular */
-        width: 600px;       /* ensure width and height are equal */
-        height: 600px;      /* so the circle is perfect */
-        object-fit: cover;  /* keeps the image nicely cropped */
+    .auth-buttons button:hover {
+      background-color: rgb(247, 161, 14);
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+    }
 
-     }
-     .travelperson h1{
-        font-size: 64px;
-        margin-bottom: 20px;
-     }
-     .highlight{
-        color: blue;
-     }
-     .travelperson p{
-        font-size: 24px;
-        margin-bottom: 20px;
-     }
+    .travel {
+      display: flex;
+    }
 
-     .discover{
-        padding: 12px 24px;
-        background-color: #ff6b00;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-     }
+    .travel img {
+      float: left;
+      border-radius: 50%;
+      /* makes the image circular */
+      width: 600px;
+      /* ensure width and height are equal */
+      height: 600px;
+      /* so the circle is perfect */
+      object-fit: cover;
+      /* keeps the image nicely cropped */
 
-     .highlight-box {
-  position: absolute;
-  background: rgba(255,255,255,0.85);
-  padding: 8px 8px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 10px;
-}
+    }
 
-.highlight-box.top {
-  top: 30%;
-  left: 900px;
-  margin: 20px 20px;
-  transform: translateY(-50%);
-}
+    .travelperson h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
 
-.highlight-box.left {
-  top: 50%;
-  left: 900px;
-  margin: 20px 20px;
-  transform: translateY(-50%);
-}
+    .highlight {
+      color: orange;
+      margin-left: 4px;
+    }
 
-.highlight-box.right {
-  top: 50%;
-  right: -20px;
-  margin: 20px 90px;
-  transform: translateY(-50%);
-}
+    .travelperson p {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-.search-box {
-  padding: 20px;
-  max-width: 400px;
-  margin: auto;
-}
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  background-color: #f5f5f5;
-  padding: 20px 40px;
-  border-radius: 12px;
-  max-width: 1000px;
-  margin: auto;
-  
-}
+    .discover {
+      padding: 12px 24px;
+      background-color: #ff6b00;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.search-item {
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-}
+    .highlight-box {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 8px 8px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 10px;
+    }
 
-label {
-  font-weight: bold;
-  justify-content: center;
-  margin-bottom: 6px;
-}
+    .highlight-box.top {
+      top: 30%;
+      left: 900px;
+      margin: 20px 20px;
+      transform: translateY(-50%);
+    }
 
-select, input[type="date"] {
-  padding: 10px;
-  border: none;
- 
-  appearance: none;
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 20px;
-}
+    .highlight-box.left {
+      top: 50%;
+      left: 900px;
+      margin: 20px 20px;
+      transform: translateY(-50%);
+    }
 
-.explore-btn {
-   padding: 12px 24px;
-        background-color: #ff6b00;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-        white-space: nowrap;
-}
+    .highlight-box.right {
+      top: 50%;
+      right: -20px;
+      margin: 20px 90px;
+      transform: translateY(-50%);
+    }
 
-.explore-btn:hover {
-  background-color: #e65c00;
-}
+    .search-box {
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
 
-</style>
+    .search-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      background-color: #f5f5f5;
+      padding: 20px 40px;
+      border-radius: 12px;
+      max-width: 1000px;
+      margin: auto;
+
+    }
+
+    .search-item {
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+    }
+
+    label {
+      font-weight: bold;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    select,
+    input[type="date"] {
+      padding: 10px;
+      border: none;
+
+      appearance: none;
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 20px;
+    }
+
+    .explore-btn {
+      padding: 12px 24px;
+      background-color: #ff6b00;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .explore-btn:hover {
+      background-color: #e65c00;
+    }
+
+    .traveplan {
+      background-color: #f5f5f5;
+      background-image: url('airplane.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      /* or 'cover' depending on effect */
+      opacity: 0.2;
+
+    }
+
+    .travelplanheading {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: auto;
+    }
+
+    .travelplanpara,
+    .dealpara,
+    .vacationpara {
+
+
+      max-width: 470px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgb(103, 127, 135);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      
+    }
+
+    .traveswe {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 3 equal columns */
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      /* spacing between squares */
+
+    }
+
+    .travelitem {
+      padding: 20px 20px;
+      word-wrap: break-word;
+      justify-content: space-between;
+    }
+
+    .deals,
+    .vacation,
+    .blog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 80%;
+      /* or any fixed width */
+      margin: auto;
+      /* centers the block */
+    }
+
+
+    .dealplace,
+    .blogdetails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      /* 4 equal columns */
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      margin-top: 40px;
+
+    }
+
+    .deallocation,
+    .vacationlocation {
+      max-width: 600px;
+      margin: 20px auto;
+
+    }
+
+    .deallocation img,
+    .vacationlocation img {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .blog-grid img {
+
+      border-radius: 20px;
+
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      /* left and right columns */
+      gap: 20px;
+      align-items: start;
+    }
+
+    .place {
+      text-align: left;
+    }
+
+    .place h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #222;
+    }
+
+    .place .country {
+      color: #666;
+      font-size: 0.95rem;
+      margin-top: 5px;
+      /* ensures it sits below h2 */
+    }
+
+    .rateprice {
+      text-align: right;
+    }
+
+    .rateprice .rating {
+
+      margin: 0 0 8px 0;
+      /* rating above price */
+      color: #f39c12;
+    }
+
+    .rateprice .price {
+      margin: 0;
+    }
+
+
+    .old-price {
+      text-decoration: line-through;
+      color: #999;
+      margin-right: 8px;
+    }
+
+    .new-price {
+      background-color: #e0ccaa;
+      color: orange;
+      font-weight: bold;
+    }
+
+    .vacationplace {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 3 equal columns */
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+
+    }
+
+    .price {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .testimonial {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 50px auto;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .testimonial-left h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .testimonial-left h2 span {
+      color: orange;
+    }
+
+    .subtext {
+      margin: 10px 0 30px;
+      color: #555;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .nav-btn.left {
+      background-color: white;
+      color: gray;
+      border: 1px solid #ccc;
+    }
+
+    .nav-btn.right {
+      background-color: orange;
+      color: white;
+    }
+
+    .testimonial-card {
+      background-color: #f6f2f2;
+      padding: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+      margin-bottom: 50px;
+      z-index: 4;
+    }
+
+    .profile-picture {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      border: 3px solid #fff;
+    }
+
+    .card-content .quote {
+      font-style: italic;
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .name {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .location {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* Styling the next-card as a shadow/extension */
+    .next-card {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      bottom: -80px;
+      right: -80px;
+      background-color: #ebe8e8;
+      box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.05);
+      /* subtle shadow on right */
+      border-right: 4px solid #eee;
+      /* light right border */
+    }
+
+    .banner {
+
+      background-image: url(subscribe.png);
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      width: 900px;
+      margin: 0 auto;
+      margin-top: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      border-radius: 30px;
+
+    }
+
+    .banner h2 {
+      font-size: 20vw;
+
+      margin-bottom: 20px;
+      align-content: center;
+      color: white;
+    }
+
+    .subscribe-box {
+      position: relative;
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .subscribe-box input[type="email"] {
+      padding: 10px 12px 10px 35px;
+      /* extra left padding for icon */
+      border: none;
+      border-radius: 4px;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    .content {
+
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .content h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      width: 350px;
+      /* adjust width as needed */
+    }
+
+    .input-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #FE6401;
+      font-size: 16px;
+    }
+
+    .input-wrapper input[type="email"] {
+      width: 100%;
+      padding: 10px 2px 10px 35px;
+      /* left padding for icon, right padding for button */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .input-wrapper button {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 6px 12px;
+      background-color: #FE6401;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .input-wrapper button:hover {
+      background-color: #e05500;
+    }
+
+    .agencydetails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      margin: 50px auto;
+      align-items: left;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .agency-grid h3 {
+      text-align: left;
+      padding-left: 15px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .agency-grid ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      /* left the list items under the heading */
+    }
+
+    .agency-grid ul li a {
+      text-decoration: none;
+      /* removes underline */
+      color: #997d7d;
+      /* light color for links */
+      font-size: 14px;
+      padding: 20px;
+      margin-bottom: 10px;
+
+    }
+
+    .agency-grid .social-icons {
+      display: flex;
+      padding: 15px;
+      gap: 15px;
+    }
+
+    .icon.instagram {
+      background-color: orange;
+      border-radius: 50px;
+      padding: 2px;
+      color: white;
+
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f7f3f3;
+      color: #997d7d;
+      ;
+      padding: 20px 40px;
+      font-size: 14px;
+      border-top: 1px solid #ccc;
+      /* only top border */
+      border-right: none;
+      border-left: none;
+      border-bottom: none;
+    }
+
+
+    .footer-left p {
+      margin: 0;
+    }
+
+    .footer-right a {
+      color: #997d7d;
+      ;
+      /* light color */
+      text-decoration: none;
+      /* no underline */
+    }
+
+    .footer-right a:hover {
+      color: #a57474;
+      ;
+      /* brighter on hover */
+    }
+
+    section {
+      margin-bottom: 40px;
+      /* adds space below each section */
+      padding: 20px;
+      /* adds inner space inside each section */
+    }
+
+    .dealdiscount .nav-buttons {
+      display: flex;
+      align-items: center;
+      /* vertical alignment */
+      justify-content: center;
+    }
+
+    .Vacationplan .nav-buttons {
+      display: flex;
+      align-items: right;
+      /* vertical alignment */
+      justify-content: right;
+      margin-right: 150px;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="logo">Travelbook</div>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Destination</li>
-                <li>Tour</li>
-                <li>Blog</li>
-            </ul>
-        </nav>
+  <header>
+    <div class="logo">Trabook</div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Destination</li>
+        <li>Tour</li>
+        <li>Blog</li>
+      </ul>
+    </nav>
     <div class="auth-buttons">
       <button class="login">Login</button>
       <button class="signup">Sign up</button>
     </div>
-    </header>
-    <section class="travel">
-        <div class="travelperson">
-            <h1>Get started your <span class="highlight">journey </span>with us</h1>
-            <p>A Team of experienced tourism professionals will provide you with the best advice and tips for your desire place</p>
-            <p>Explore a Dream Discover With us, every trip feels extraordinary</p>
-            <button class="discover">Discover Now</button>
-        </div>
-        <!-- <img src="traveler.png" alt="traveler">   -->
-        <div class="image-wrapper">
-  <img src="traveler.png" alt="traveler">
-  <div class="highlight-box top">🏆 Best Tour Awards</div>
-  <div class="highlight-box left">🌍 Explore</div>
-  <div class="highlight-box right">⭐ 27K Customer Reviewed</div>
-       </div>
+  </header>
+  <section class="travel">
+    <div class="travelperson">
+      <h1>Get started your <span class="highlight">journey </span>with us</h1>
+      <p class="center-text">A Team of experienced tourism professionals will provide you with the best advice and tips
+        for your desire
+        place</p>
+      <p>Explore a Dream Discover With us, every trip feels extraordinary</p>
+      <button class="discover">Discover Now</button>
+    </div>
+    <!-- <img src="traveler.png" alt="traveler">   -->
+    <div class="image-wrapper">
+      <img src="traveler.png" alt="traveler">
+      <div class="highlight-box top">🏆 Best Tour Awards</div>
+      <div class="highlight-box left">🌍 Explore</div>
+      <div class="highlight-box right">⭐ 27K Customer Reviewed</div>
+    </div>
 
-    </section>
-   <section class="search-box">
+  </section>
+  <section class="search-box">
     <h2>Find your destination easily</h2>
-  <div class="search-bar">
-  <div class="search-item">
-    <label for="location">Location</label>
-    <select id="location">
-      <option value="">Where are you going</option>
-      <option value="paris">Paris</option>
-      <option value="bali">Bali</option>
-      <option value="newyork">New York</option>
-    </select>
-  </div>
+    <div class="search-bar">
+      <div class="search-item">
+        <label for="location">Location</label>
+        <select id="location">
+          <option value="">Where are you going</option>
+          <option value="paris">Paris</option>
+          <option value="bali">Bali</option>
+          <option value="newyork">New York</option>
+        </select>
+      </div>
 
-  <div class="search-item">
-    <label for="date">Date</label>
-    <input type="date" id="date" />
-  </div>
+      <div class="search-item">
+        <label for="date">Date</label>
+        <input type="date" id="date" />
+      </div>
 
-  <div class="search-item">
-    <label for="guest">Guest</label>
-    <input type="number" max="20">
-    
-  </div>
+      <div class="search-item">
+        <label for="guest">Guest</label>
+        <input type="number" max="20">
 
-  <button class="explore-btn">Explore Now</button>
-  </div>
-</section>
-    
+      </div>
+
+      <button class="explore-btn">Explore Now</button>
+    </div>
+  </section>
+  <section class="travelplan">
+    <h1 class="travelplanheading">Things you need <span class="highlight">to do</span></h1>
+    <p class="travelplanpara">We ensure that you'll embark on a perfectly planned, safe vacation at a price</p>
+    <div class="traveswe">
+      <div class="travelitem" id="sign">
+        <img src="signup.png" alt="signup">
+        <h3><strong>Sign Up</strong></h3>
+        <p style="word-break: normal;color: #a18a8a;">Completed all the work associated with planning and processing</p>
+      </div>
+      <div class="travelitem" id="Worthmoney">
+        <img src="wallet.png" alt="wallet">
+        <h3><strong>Worth of Money</strong></h3>
+        <p style="word-break: normal;color: #a18a8a;">After successful access then book from exclusive deals & pricing
+        </p>
+      </div>
+      <div class="travelitem" id="excitingtravel">
+        <img src="location.png" alt="location">
+        <h3><strong>Exciting Travel</strong></h3>
+        <p style="word-break: normal;color: #a18a8a;">Start and explore a wide range of exciting travel experience</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- </section> -->
+  <section class="dealdiscount">
+    <h1 class="deals">Exclusive <span class="highlight">deals & discounts</span></h1>
+    <p class="dealpara">Discover our fantastic early booking discounts & start planning your journey.</p>
+    <div class="dealplace">
+      <div class="deallocation" id="Madrid">
+        <img src="Madraid.png" alt="Spain">
+        <div class="info-grid">
+          <div class="place">
+            <h2><strong>Madrid</strong></h2>
+            <p class="country"><span class="material-icons">&#xe0c8;</span>Spain</p>
+          </div>
+          <div class="rateprice">
+            <p class="rating">⭐ 4.8</p>
+            <p class="price"><span class="old-price"><s>$950</s></span> <span
+                class="new-price"><strong>$850</strong></span></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="deallocation" id="Madrid">
+
+        <img src="frienze.png" alt="italy">
+        <div class="info-grid">
+          <div class="place">
+            <h2><strong>Frienze</strong></h2>
+            <p class="country"><span class="material-icons">&#xe0c8;</span>Italy</p>
+          </div>
+          <div class="rateprice">
+            <p class="rating">⭐ 4.5</p>
+            <p class="price"><span class="old-price"><s>$850</s></span> <span
+                class="new-price"><strong>$750</strong></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="deallocation" id="paris">
+        <img src="paris.png" alt="france">
+        <div class="info-grid">
+          <div class="place">
+            <h2><strong>Paris</strong></h2>
+            <p class="country"><span class="material-icons">&#xe0c8;</span>France</p>
+          </div>
+          <div class="rateprice">
+            <p class="rating">⭐ 4.4</p>
+            <p class="price"><span class="old-price"><s>$699</s></span> <span
+                class="new-price"><strong>$599</strong></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="deallocation" id="london">
+        <img src="london.png" alt="uk">
+        <div class="info-grid">
+          <div class="place">
+            <h2><strong>London</strong></h2>
+            <p class="country"><span class="material-icons">&#xe0c8;</span>UK</p>
+          </div>
+          <div class="rateprice">
+            <p class="rating">⭐ 4.5</p>
+            <p class="price"><span class="old-price"><s>$850</s></span> <span
+                class="new-price"><strong>$850</strong></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn left"><i class="far fa-arrow-alt-circle-left"></i></button>
+      <button class="nav-btn right"><i class="far fa-arrow-alt-circle-right"></i></button>
+    </div>
+  </section>
+
+  <section class="Vacationplan">
+    <h1 class="vacation">Best <span class="highlight">vacation plan</span></h1>
+    <p class="vacationpara">Plan your perfect vacation with our travel agency. Choose among hundreds of all-inclusive
+      offers!</p>
+    <div class="nav-buttons">
+      <button class="nav-btn left"><i class="far fa-arrow-alt-circle-left"></i></button>
+      <button class="nav-btn right"><i class="far fa-arrow-alt-circle-right"></i></button>
+    </div>
+    <div class="vacationplace">
+      <div class="vacationlocation">
+        <img src="romeitaly.png" alt="Italy">
+        <div class="info-grid">
+          <div class="place">
+            <h2><strong>Rome,Italy</strong></h2>
+            <p class="country"><i class="fas fa-location-arrow"></i>10 Days Trip</p>
+          </div>
+          <div class="rateprice">
+            <p class="price"><strong>$5,42k</strong></p>
+            <p class="rating">⭐ 4.8</p>
+          </div>
+        </div>
+      </div>
+      <div class="vacationlocation">
+        <img src="uklondon.png" alt="uk">
+        <div class="info-grid">
+          <div class="place">
+            <h2><strong>London,UK</strong></h2>
+            <p class="country"><i class="fas fa-location-arrow"></i>07 Days Trip</p>
+          </div>
+          <div class="rateprice">
+            <p class="price"><strong>$2,42k</strong></p>
+            <p class="rating">⭐ 4.7</p>
+          </div>
+        </div>
+      </div>
+      <div class="vacationlocation">
+        <img src="osakajapan.png" alt="japan">
+        <div class="info-grid">
+          <div class="place">
+            <h2><strong>Osaka,Japan</strong></h2>
+            <!-- <p class="country"><span class="material-icons">location_arrow</span>10 Days Trip</p> -->
+            <p class="country"><i class="fas fa-location-arrow"></i> 10 Days Trip</p>
+          </div>
+          <div class="rateprice">
+            <p class="price"><strong>$5,42k</strong></p>
+            <p class="rating">⭐ 4.7</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <div class="testimonial-left">
+      <h2>What people say <span class="highlight">about us.</span></h2>
+      <p class="subtext">Our Clients send us bunch of smilies with our services and we love them.</p>
+      <div class="nav-buttons">
+        <button class="nav-btn left"><i class="far fa-arrow-alt-circle-left"></i></button>
+        <button class="nav-btn right"><i class="far fa-arrow-alt-circle-right"></i></button>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="mike.png" alt="Mike Taylor" class="profile-picture">
+      <div class="card-content">
+        <p class="quote">“On the Windows talking painted pasture yet its express parties use...”</p>
+        <p class="name">Mike Taylor</p>
+        <p class="location">Lahore, Pakistan</p>
+      </div>
+      <div class="next-card">
+        <p class="name">Chris Thomas</p>
+        <p class="location">CEO of Red Button</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="blogupdate">
+    <h1 class="blog">Get Update with <span class="highlight">latest blog</span></h1>
+    <div class="blogdetails">
+      <div class="blogdetails">
+        <div class="blog-grid">
+          <img src="amazing.png" alt="amazing">
+          <div class="blgdetail">
+            <h3><strong>The Amazing Difference a Year of Travelling</strong></h3>
+            <p class="date">July 27, 2021</p>
+          </div>
+        </div>
+
+
+
+        <div class="blog-grid">
+          <img src="travel.png" alt="travel">
+          <div class="blgdetail">
+            <h3><strong>Travel far enough, you meet yourself</strong></h3>
+            <p class="date">July 27, 2021</p>
+          </div>
+        </div>
+
+
+        <div class="blog-grid">
+          <img src="savemoney.png" alt="save">
+          <div class="blgdetail">
+            <h3><strong>How to Save Money While visiting Africa</strong></h3>
+            <p class="date">July 27, 2021</p>
+          </div>
+        </div>
+
+
+        <div class="blog-grid">
+          <img src="reflection.png" alt="save">
+          <div class="blgdetail">
+            <h3><strong>Reflection on 5 Months of Travel: Time to Hang</strong></h3>
+            <p class="date">July 27, 2021</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="subscribebanner">
+    <div class="banner">
+      <div class="content">
+        <h2><strong>Subscribe and get exclusive deals & offers</strong></h2>
+        <div class="input-wrapper">
+
+          <i class="fa-solid fa-envelope"></i>
+
+          <input type="email" placeholder="Enter your mail">
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="agency">
+    <div class="agencydetails">
+      <div class="agency-grid">
+        <h3>Trabook</h3>
+        <div class="ageny-m">
+          <p style="color: #997d7d; ">Book your ticket in min, get full control for much longer</p>
+          <div class="social-icons">
+            <div class="icon facebook"><i class="fab fa-facebook-f"></i></div>
+            <div class="icon instagram"><i class="fab fa-instagram"></i></div>
+            <div class="icon twitter"><i class="fab fa-twitter"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="agency-grid">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Logistic</a></li>
+          <li><a href="#">Privacy & Policy</a></li>
+        </ul>
+      </div>
+      <div class="agency-grid">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="#">Help/FAQ</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+      </div>
+      <div class="agency-grid">
+        <h3>More</h3>
+        <ul>
+          <li><a href="#">Press Centre</a></li>
+          <li><a href="#">Our Blog</a></li>
+          <li><a href="#">Low fare tips</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer-bottom">
+    <div class="footer-left">
+      <p>Copyright, Trabook 2022. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="#">Terms & Conditions</a>
+    </div>
+  </footer>
+
 </body>
+
 </html>
